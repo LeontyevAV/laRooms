@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { db } from "./index";
+import { db, client } from "./index";
 import { cities, collections } from "./schema";
 
 const CITIES_DATA = [
@@ -96,9 +96,12 @@ async function seed() {
   console.log(`Seeded ${COLLECTIONS_DATA.length} collections`);
 
   console.log("Seed completed!");
+  await client.end();
+  process.exit(0);
 }
 
-seed().catch((e) => {
+seed().catch(async (e) => {
   console.error("Seed failed:", e);
+  await client.end().catch(() => {});
   process.exit(1);
 });
