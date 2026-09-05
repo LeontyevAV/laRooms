@@ -68,6 +68,9 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
           laRooms © {new Date().getFullYear()} · Бронирование отелей
         </div>
+        <div className="container mx-auto px-4 text-center text-xs text-muted-foreground/50 mt-1">
+          Verification: l8tgzvq0vmei69j3
+        </div>
       </footer>
     </div>
   );
